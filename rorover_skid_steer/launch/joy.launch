@@ -1,0 +1,12 @@
+<launch>
+  <node pkg="joy" type="joy_node" name="joystick_driver">
+    <param name="autorepeat_rate" type="double" value="100" />
+    <param name="deadzone" type="double" value="0.1" />
+    <param name="coalesce_interval" type="double" value="0.01" />
+  </node>
+
+  <node pkg="rorover_skid_steer" type="rover_teleop" name="teleop" output="log" respawn="true">
+    <param name="hook_topic" type="string" value="/joint1_position_controller/command" />
+    <param name="cmd_vel_topic" type="string" value="/diff_drive_controller/cmd_vel" />
+  </node>
+</launch>

@@ -1,0 +1,217 @@
+<robot name="RoRover_V0.1">
+
+      <link name='chassis'>
+        <pose>0 0 0   0 0 0</pose>
+
+        <collision name='collision'>
+          <geometry>
+            <mesh filename="package://rorover_skid_steer/meshes/RoRo Chassis_visual.stl" />
+          </geometry>
+          <surface>
+            <bounce>
+              <restitution_coefficient>0.35</restitution_coefficient>
+              <threshold>0.025</threshold>
+            </bounce>
+          </surface>
+        </collision>
+
+        <visual name='visual'>
+          <geometry>
+            <mesh filename="package://rorover_skid_steer/meshes/RoRo Chassis_visual.stl" />
+          </geometry>
+        </visual>
+
+      <inertial>
+        <mass value="17.199" />
+        <origin xyz="0.0 -0.002719 -0.125605" rpy="-0.003491 0.0 0.0" />
+        <inertia
+ 	  ixx="0.763546264" ixy="0.0" ixz="0.0"
+	  iyy="1.213658318" iyz="0.0"
+	  izz="0.465806016" />
+      </inertial>
+      </link>
+
+      <link name="left_rear_wheel">
+        <pose>0.33 -0.075 .110   0.0 1.5707 0.0</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder length="0.117" radius="0.1" />
+          </geometry>
+          <surface>
+            <bounce>
+              <restitution_coefficient>0.35</restitution_coefficient>
+              <threshold>0.025</threshold>
+            </bounce>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh filename="package://rorover_skid_steer/meshes/wheel_unders.dae" />
+          </geometry>
+        </visual>
+        <inertial>
+          <mass value="0.454"/>
+	  <origin zyx="0.0 0.0 0.001805" rpy="0.0 0.0 0.5167919915" />
+	  <inertia 
+	    ixx="0.001983016" ixy="0.0" ixz="0.0"
+	    iyy="0.001983016" iyz="0.0"
+	    izz="0.00297862" />
+        </inertial>
+      </link>
+
+      <link name="right_rear_wheel">
+        <pose>-0.33 -0.075 0.110   0.0 -1.5707 0.0</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder length="0.117" radius="0.1" />
+          </geometry>
+          <surface>
+            <bounce>
+              <restitution_coefficient>0.35</restitution_coefficient>
+              <threshold>0.025</threshold>
+            </bounce>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh filename="package://rorover_skid_steer/meshes/wheel_unders.dae" />
+          </geometry>
+        </visual>
+        <inertial>
+          <mass value="0.454"/>
+	  <origin zyx="0.0 0.0 0.001805" rpy="0.0 0.0 0.5167919915" />
+	  <inertia 
+	    ixx="0.001983016" ixy="0.0" ixz="0.0"
+	    iyy="0.001983016" iyz="0.0"
+	    izz="0.00297862" />
+        </inertial>
+      </link>
+
+      <link name="left_front_wheel">
+        <pose>0.33 -0.075 -0.370   0.0 1.5707 0.0</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder length="0.117" radius="0.1" />
+          </geometry>
+          <surface>
+            <bounce>
+              <restitution_coefficient>0.35</restitution_coefficient>
+              <threshold>0.025</threshold>
+            </bounce>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh filename="package://rorover_skid_steer/meshes/wheel_unders.dae" />
+          </geometry>
+        </visual>
+        <inertial>
+          <mass value="0.454"/>
+	  <origin zyx="0.0 0.0 0.001805" rpy="0.0 0.0 0.5167919915" />
+	  <inertia 
+	    ixx="0.001983016" ixy="0.0" ixz="0.0"
+	    iyy="0.001983016" iyz="0.0"
+	    izz="0.00297862" />
+        </inertial>
+      </link>
+
+      <link name="right_front_wheel">
+        <pose>-0.33 -0.075 -0.370   0.0 -1.5707 0.0</pose>
+        <collision name="collision">
+          <geometry>
+            <cylinder length="0.117" radius="0.1" />
+          </geometry>
+          <surface>
+            <bounce>
+              <restitution_coefficient>0.35</restitution_coefficient>
+              <threshold>0.025</threshold>
+            </bounce>
+          </surface>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <mesh filename="package://rorover_skid_steer/meshes/wheel_unders.dae" />
+          </geometry>
+        </visual>
+        <inertial>
+          <mass value="0.454"/>
+	  <origin zyx="0.0 0.0 0.001805" rpy="0.0 0.0 0.5167919915" />
+	  <inertia 
+	    ixx="0.001983016" ixy="0.0" ixz="0.0"
+	    iyy="0.001983016" iyz="0.0"
+	    izz="0.00297862" />
+        </inertial>
+      </link>
+
+      <link name="hook">
+        <pose>-0.010 0.0 0.0   0 0 0</pose>
+
+        <collision name="collision">
+          <geometry>
+            <mesh filename="package:rorover_skid_steer/meshes/Hook_Arm_300_collision.stl" />
+          </geometry>
+          <surface>
+            <bounce>
+              <restitution_coefficient>0.35</restitution_coefficient>
+              <threshold>0.025</threshold>
+            </bounce>
+          </surface>
+        </collision>
+
+        <visual name="visual">
+          <geometry>
+            <mesh filename="package:rorover_skid_steer/meshes/Hook_Arm_300_visual.stl" />
+          </geometry>
+        </visual>
+
+        <inertial>
+          <mass value="0.694" />
+	  <origin xyz="0.010 0.027234 -0.182083" rpy="0.31468 0.0 0.0" />
+	  <inertia 
+	    ixx="0.011472852" ixy="0.0" ixz="0.0"
+	    iyy="0.010056381" iyz="0.0"
+	    izz="0.001549328" />
+        </inertial>
+      </link>
+
+      <joint type="continuous" name="left_rear_wheel_hinge">
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <child link="left_rear_wheel" />
+        <parent link="chassis" />
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.1" />
+      </joint>
+
+      <joint type="continuous" name="right_rear_wheel_hinge">
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <child link="right_rear_wheel" />
+        <parent link="chassis" />
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.1" />
+      </joint>
+
+      <joint type="continuous" name="left_front_wheel_hinge">
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <child link="left_front_wheel" />
+        <parent link="chassis" />
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.1" />
+      </joint>
+
+      <joint type="continuous" name="right_front_wheel_hinge">
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <child link="right_front_wheel" />
+        <parent link="chassis" />
+        <axis xyz="1 0 0" />
+        <dynamics damping="0.1" />
+      </joint>
+
+
+      <joint type="revolute" name="hook_hinge">
+	<origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <child link="hook" />
+        <parent link="chassis" />
+        <axis xyz="1 0 0" />
+        <limit lower="0.0" upper="2.617993878" effort="1" velocity="1.0" />
+      </joint>
+</robot>
