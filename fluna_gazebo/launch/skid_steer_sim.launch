@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <launch>
 
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
@@ -16,13 +17,17 @@
     <arg name="headless" value="$(arg headless)"/>
   </include>
 
-  <!-- Load the URDF into the ROS Parameter Server -->
+  <!-- Load the URDFs into the ROS Parameter Server -->
   <param name="robot_description"
-    command="$(find xacro)/xacro --inorder $(find rorover_skid_steer)/urdf/skid_steer.urdf" />
+    command="$(find xacro)/xacro --inorder $(find rorover_skid_steer)/urdf/skid_steer_diff.urdf" />
+  <param name="empty_sled_description"
+    command="$(find xacro)/xacro --inorder $(find fluna_gazebo)/urdf/sled_empty.urdf" />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-    args="-urdf -model RoRover -param robot_description"/>
+  <node name="urdf_spawner_robot" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model RoRover -param robot_description -x 0 -y 0 -z 1"/>
+  <node name="urdf_spawner_sled1" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model Sled_Empty -param empty_sled_description -x 1 -y 1 -z 0"/>
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find rorover_skid_steer)/config/rorover_control.yaml" command="load"/>

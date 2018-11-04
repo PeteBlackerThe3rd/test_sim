@@ -1,5 +1,0 @@
-digraph G {
-node [shape=box];
-"chassis" [label="chassis"];
-node [shape=ellipse, color=blue, fontcolor=blue];
-}

@@ -1,5 +1,5 @@
 <launch>
-  <node pkg="joy" type="joy_node" name="joystick_driver">
+  <node pkg="joy" type="joy_node" name="joystick_driver" respawn="true">
     <param name="autorepeat_rate" type="double" value="100" />
     <param name="deadzone" type="double" value="0.1" />
     <param name="coalesce_interval" type="double" value="0.01" />
