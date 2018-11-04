@@ -9,7 +9,8 @@
   <arg name="debug" default="false"/>
 
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+  <include file="$(find fluna_gazebo)/launch/basic_world.launch">
+    <arg name="world_name" value="$(find fluna_gazebo)/worlds/basic.world" />
     <arg name="debug" value="$(arg debug)" />
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>
@@ -19,15 +20,17 @@
 
   <!-- Load the URDFs into the ROS Parameter Server -->
   <param name="robot_description"
-    command="$(find xacro)/xacro --inorder $(find rorover_skid_steer)/urdf/skid_steer_diff.urdf" />
+    command="$(find xacro)/xacro --inorder $(find rorover_skid_steer)/urdf/rover_fixed_skid.urdf" />
   <param name="empty_sled_description"
     command="$(find xacro)/xacro --inorder $(find fluna_gazebo)/urdf/sled_empty.urdf" />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner_robot" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-    args="-urdf -model RoRover -param robot_description -x 0 -y 0 -z 1"/>
+    args="-urdf -model RoRover -param robot_description -x 8 -y 8 -z 1"/>
   <node name="urdf_spawner_sled1" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-    args="-urdf -model Sled_Empty -param empty_sled_description -x 1 -y 1 -z 0"/>
+    args="-urdf -model Sled_Empty1 -param empty_sled_description -x 8 -y 9 -z 0"/>
+  <node name="urdf_spawner_sled2" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf -model Sled_Empty2 -param empty_sled_description -x 9 -y 9 -z 0"/>
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
   <rosparam file="$(find rorover_skid_steer)/config/rorover_control.yaml" command="load"/>

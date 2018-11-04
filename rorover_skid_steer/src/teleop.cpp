@@ -77,7 +77,7 @@ void joystickMsgHandler(sensor_msgs::Joy stickInput)
   // create Twist message and publish on /cmd_vel topic
   geometry_msgs::Twist cmdVel;
   cmdVel.linear.x = axisY;
-  cmdVel.angular.z = 0.0 - axisX;
+  cmdVel.angular.z = axisX;
   cmdVelPublisher.publish(cmdVel);
 
   // check for button events
