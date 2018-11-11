@@ -33,7 +33,7 @@
     args="-urdf -model Sled_Empty2 -param empty_sled_description -x 9 -y 9 -z 0"/>
 
   <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find rorover_skid_steer)/config/rorover_control.yaml" command="load"/>
+  <rosparam file="$(find rorover_skid_steer)/config/rover_skid_steer.yaml" command="load"/>
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"

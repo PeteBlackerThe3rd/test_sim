@@ -36,16 +36,52 @@
             <mesh filename="package://rorover_skid_steer/meshes/DifferentialChassis.stl" />
           </geometry>
         </visual>
-      <inertial>
-        <mass value="5.306" />
-        <origin xyz="0.123149 0.0 0.06677"
-                rpy="0.0 -0.2556907354 0.0" />
-        <inertia
- 	  ixx="0.221974787" ixy="0.0" ixz="0.0"
-	  iyy="0.341467333" iyz="0.0"
-	  izz="0.454114912" />
-      </inertial>
+        <inertial>
+	      <mass value="9.244" />
+	      <origin xyz="0.049958 0.000892 0.038181" rpy="-0.0102974425867665 0.248883951334391 -0.016929693744345" />
+	      <inertia
+	        ixx="0.30579249" ixy="0.0" ixz="0.0"
+	        iyy="0.503518758" iyz="0.0"
+	        izz="0.68258749" />
+	    </inertial>
       </link>
+      
+<!-- Sled Idler Roller -->
+      <link name='roller'>
+        <collision>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+          <geometry>
+            <mesh filename="package://rorover_skid_steer/meshes/Rover_Roller.stl" />
+          </geometry>
+          <surface>
+            <bounce>
+              <restitution_coefficient>0.35</restitution_coefficient>
+              <threshold>0.025</threshold>
+            </bounce>
+          </surface>
+        </collision>
+        <visual>
+          <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+          <geometry>
+            <mesh filename="package://rorover_skid_steer/meshes/Rover_Roller.stl" />
+          </geometry>
+        </visual>
+	    <inertial>
+	      <mass value="0.768" />
+	      <origin xyz="0 0 0" rpy="0 0 0" />
+	      <inertia
+	          ixx="0.009964047" ixy="0.0" ixz="0.0"
+	          iyy="0.000236466" iyz="0.0"
+	          izz="0.009964047" />
+	    </inertial>
+      </link>
+      <joint type="continuous" name="roller_joint">
+	    <origin xyz="-0.330 0.0 0.0"
+                rpy="0.0 0.0 0.0" />
+        <child link="roller" />
+        <parent link="chassis" />
+        <axis xyz="0 1 0" />
+      </joint>
 
 <!-- Left Differential Suspension Arm -->
       <link name='left_arm'>
